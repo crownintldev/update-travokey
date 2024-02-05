@@ -27,10 +27,10 @@ interface NavProps {
 }
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useState } from "react";
-import { Button } from "@/components/ui/button"
+import { GlobalSheet } from "../sheet/page";
+import { AccountForm } from "../forms/account/account-form";
 
 export function Nav() {
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathName = usePathname();
 
@@ -40,7 +40,6 @@ export function Nav() {
 
   return (
     <aside className="flex">
-      
       <div className="flex flex-col items-center w-16 h-screen py-8 space-y-8 bg-white dark:bg-gray-900 dark:border-gray-700">
         <Link href="/">
           <Avatar>
@@ -278,9 +277,8 @@ export function Nav() {
             </div>
           </button>
         </div>
-      <Button variant={'outline'} className="h-8" onClick={drawerHandler}>sign up</Button>
+        <GlobalSheet form={<AccountForm />} title={"Account form"} />
       </div>
-
     </aside>
   );
 }
