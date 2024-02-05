@@ -27,6 +27,7 @@ interface NavProps {
 }
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useState } from "react";
+import { Button } from "@/components/ui/button"
 
 export function Nav() {
 
@@ -277,7 +278,9 @@ export function Nav() {
             </div>
           </button>
         </div>
+      <Button variant={'outline'} className="h-8" onClick={drawerHandler}>sign up</Button>
       </div>
+
     </aside>
   );
 }

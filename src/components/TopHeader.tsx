@@ -9,8 +9,10 @@ const TopHeader = (props: Props) => {
   return (
     <div className="flex h-16 items-center place-content-between border-b-2 border-gray-300 h-[56px] mb-4 pb-2">
       <Search />
-      {/* <NavLists /> */}
-      <UserNav />
+      <div className="flex gap-4">
+        <NavLists />
+        <UserNav />
+      </div>
     </div>
   );
 };
