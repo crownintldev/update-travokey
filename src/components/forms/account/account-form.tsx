@@ -2,7 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 // import { CalendarIcon, CaretSortIcon, CheckIcon } from "@radix-ui/react-icons"
-import { CalendarIcon, CheckIcon } from "lucide-react"; // Assuming this is your hamburger icon
+import { CalendarIcon, CheckIcon, Radio } from "lucide-react"; // Assuming this is your hamburger icon
 import { ChevronRight, Menu } from "lucide-react"; // Assuming this is your hamburger icon
 
 import { format } from "date-fns";
@@ -35,6 +35,8 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Toast } from "@/components/ui/toast";
+import { Textarea } from "@/components/ui/textarea";
+import { RadioGroup } from "@radix-ui/react-dropdown-menu";
 
 const languages = [
   { label: "English", value: "en" },
@@ -63,6 +65,9 @@ const accountFormSchema = z.object({
   language: z.string({
     required_error: "Please select a language.",
   }),
+  bio: z.string().optional(), // for textarea
+  gender: z.enum(["male", "female", "other"]).optional(), // for radio buttons
+  profilePicture: z.any().optional(), // for file input
 });
 
 type AccountFormValues = z.infer<typeof accountFormSchema>;
@@ -80,7 +85,7 @@ export function AccountForm() {
   });
 
   function onSubmit(data: AccountFormValues) {
-    ({
+    Toast({
       title: "You submitted the following values:",
       // description: (
       //   <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
@@ -102,10 +107,10 @@ export function AccountForm() {
               <FormControl>
                 <Input placeholder="Your name" {...field} />
               </FormControl>
-              <FormDescription>
+              {/* <FormDescription>
                 This is the name that will be displayed on your profile and in
                 emails.
-              </FormDescription>
+              </FormDescription> */}
               <FormMessage />
             </FormItem>
           )}
@@ -121,10 +126,7 @@ export function AccountForm() {
                   <FormControl>
                     <Button
                       variant={"outline"}
-                      className={cn(
-                        "w-[240px] pl-3 text-left font-normal",
-                        !field.value && "text-muted-foreground"
-                      )}
+                      className={cn(!field.value && "text-muted-foreground")}
                     >
                       {field.value ? (
                         format(field.value, "PPP")
@@ -147,9 +149,6 @@ export function AccountForm() {
                   />
                 </PopoverContent>
               </Popover>
-              <FormDescription>
-                Your date of birth is used to calculate your age.
-              </FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -166,10 +165,7 @@ export function AccountForm() {
                     <Button
                       variant="outline"
                       role="combobox"
-                      className={cn(
-                        "w-[200px] justify-between",
-                        !field.value && "text-muted-foreground"
-                      )}
+                      className={cn(!field.value && "text-muted-foreground")}
                     >
                       {field.value
                         ? languages.find(
@@ -208,9 +204,56 @@ export function AccountForm() {
                   </Command>
                 </PopoverContent>
               </Popover>
-              <FormDescription>
-                This is the language that will be used in the dashboard.
-              </FormDescription>
+
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="bio"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Bio</FormLabel>
+              <FormControl>
+                <Textarea placeholder="Tell us about yourself" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        {/* Radio Buttons for Gender
+        <FormField
+          control={form.control}
+          name="gender"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Gender</FormLabel>
+              <RadioGroup {...field}>
+                <Radio value="male" label="Male" />
+                <Radio value="female" label="Female" />
+                <Radio value="other" label="Other" />
+              </RadioGroup>
+              <FormMessage />
+            </FormItem>
+          )}
+        /> */}
+
+        {/* File Input for Profile Picture */}
+        <FormField
+          control={form.control}
+          name="profilePicture"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Profile Picture</FormLabel>
+              <FormControl>
+                <Input
+                  type="file"
+                  {...field}
+                  className="text-muted-foreground"
+                />
+              </FormControl>
               <FormMessage />
             </FormItem>
           )}
