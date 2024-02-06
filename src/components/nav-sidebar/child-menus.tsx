@@ -5,7 +5,6 @@ import { AccountForm } from "../forms/account/account-form";
 type Props = {};
 
 export default function ChildMenus(props: Props) {
-
   console.log("menu props", props);
 
   return (
@@ -152,8 +151,13 @@ export default function ChildMenus(props: Props) {
     //   <GlobalSheet form={<AccountForm />} title={"Account form"} />
     // </div>
     <div className="h-[100vh] flex h-5/6 w-72 flex-col bg-gray-200">
-      <h1 className="flex justify-center pt-2">{props.title}</h1>
       <ul className="mt-12 flex flex-col">
+        <li className="relative transition">
+          <div className="relative m-2 flex cursor-pointer items-center rounded-xl py-3 pl-5 text-sm text-gray-500 hover:bg-gray-50">
+            {props.title}
+          </div>
+        </li>
+
         <li className="relative transition">
           <input className="peer hidden" type="checkbox" id="menu-2" />
           <div className="relative m-2 flex items-center rounded-xl border-b-4 border-gray-300 bg-gray-50 py-3 pl-5 text-sm text-gray-500">

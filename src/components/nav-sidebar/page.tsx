@@ -8,7 +8,8 @@ import ChildMenus from "./child-menus";
 type Props = {};
 
 const MainMenu = (props: Props) => {
-  const [selectedTitle, setSelectedTitle] = useState([]); // State to store the selected title
+  const [selectedTitle, setSelectedTitle] = useState("");
+  const [selectedIcon, setSelectedIcon] = useState();
   const navLinks = [
     {
       title: "home",
@@ -65,7 +66,7 @@ const MainMenu = (props: Props) => {
   ];
 
   // Function to handle menu item click and update the selected title
-  const handleMenuItemClick = (title: string, link: string) => {
+  const handleMenuItemClick = (title: string, link: string, icons: string) => {
     setSelectedTitle(title);
   };
 
