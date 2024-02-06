@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { UsersRound, Target, Settings, Home, TrendingUp } from "lucide-react";
@@ -8,6 +8,7 @@ import ChildMenus from "./child-menus";
 type Props = {};
 
 const MainMenu = (props: Props) => {
+  const [selectedTitle, setSelectedTitle] = useState([]); // State to store the selected title
   const navLinks = [
     {
       title: "home",
@@ -63,6 +64,11 @@ const MainMenu = (props: Props) => {
     },
   ];
 
+  // Function to handle menu item click and update the selected title
+  const handleMenuItemClick = (title: string, link: string) => {
+    setSelectedTitle(title);
+  };
+
   return (
     <>
       <div className="flex flex-col items-center w-16 h-screen py-8 space-y-8 bg-white dark:bg-gray-900 dark:border-gray-700">
@@ -76,7 +82,10 @@ const MainMenu = (props: Props) => {
           </Avatar>
         </Link>
         {navLinks.map((item) => (
-          <>
+          <div
+            key={item.title}
+            onClick={() => handleMenuItemClick(item.title, item.link)} // Call the function with the selected title
+          >
             <Tooltip
               id={item.title}
               place="right"
@@ -98,10 +107,10 @@ const MainMenu = (props: Props) => {
                 {item.icon}
               </div>
             </Link>
-          </>
+          </div>
         ))}
       </div>
-      <ChildMenus />
+      <ChildMenus title={selectedTitle} />
     </>
   );
 };

@@ -4,34 +4,9 @@ import { AccountForm } from "../forms/account/account-form";
 
 type Props = {};
 
-export default function ChildMenus({}: Props) {
-  const menuItems = [
-    {
-      img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=faceare&facepad=3&w=688&h=688&q=100",
-      name: "Mia John",
-      followers: "112.2",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&h=880&q=80",
-      name: "Arthur Melo",
-      followers: "112.2",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&h=764&q=100",
-      name: "John Doe",
-      followers: "15.6",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1531590878845-12627191e687?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&h=764&q=80",
-      name: "John Doe",
-      followers: "15.6",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1531590878845-12627191e687?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&h=764&q=80",
-      name: "John Doe",
-      followers: "15.6",
-    },
-  ];
+export default function ChildMenus(props: Props) {
+
+  console.log("menu props", props);
 
   return (
     // <div className="h-screen py-8 overflow-y-auto bg-white border-l border-r sm:w-64 w-60 dark:bg-gray-900 dark:border-gray-700">
@@ -177,6 +152,7 @@ export default function ChildMenus({}: Props) {
     //   <GlobalSheet form={<AccountForm />} title={"Account form"} />
     // </div>
     <div className="h-[100vh] my-4 flex h-5/6 w-72 flex-col rounded-tr-2xl rounded-br-2xl bg-gray-200">
+      <h1 className="flex justify-center pt-2">{props.title}</h1>
       <ul className="mt-12 flex flex-col">
         <li className="relative transition">
           <input className="peer hidden" type="checkbox" id="menu-2" />
