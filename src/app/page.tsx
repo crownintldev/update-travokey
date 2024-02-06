@@ -62,7 +62,7 @@ const uesrSalesData: SalesProps[] = [
   }
 ];
 
-export default function Home() {
+export default function RenderPage() {
   return (
     <div className="flex flex-col gap-5  w-full">
       <PageTitle title="Dashboard" />

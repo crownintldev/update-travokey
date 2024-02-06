@@ -36,7 +36,6 @@ import {
 } from "@/components/ui/popover";
 import { Toast } from "@/components/ui/toast";
 import { Textarea } from "@/components/ui/textarea";
-import { RadioGroup } from "@radix-ui/react-dropdown-menu";
 
 const languages = [
   { label: "English", value: "en" },
@@ -223,24 +222,6 @@ export function AccountForm() {
           )}
         />
 
-        {/* Radio Buttons for Gender
-        <FormField
-          control={form.control}
-          name="gender"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Gender</FormLabel>
-              <RadioGroup {...field}>
-                <Radio value="male" label="Male" />
-                <Radio value="female" label="Female" />
-                <Radio value="other" label="Other" />
-              </RadioGroup>
-              <FormMessage />
-            </FormItem>
-          )}
-        /> */}
-
-        {/* File Input for Profile Picture */}
         <FormField
           control={form.control}
           name="profilePicture"

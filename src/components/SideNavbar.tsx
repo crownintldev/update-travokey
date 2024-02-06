@@ -19,7 +19,7 @@ export default function SideNavbar() {
         onClick={toggleMobileNav}
         aria-label="Toggle Navigation"
       >
-        <Menu className="" />
+        <Menu className="absolute left-4 top-2" />
       </button>
       <div className={`${isMobileNavVisible ? "block" : "hidden"} lg:block`}>
         <Nav />
