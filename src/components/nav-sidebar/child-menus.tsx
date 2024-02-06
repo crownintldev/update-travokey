@@ -151,7 +151,7 @@ export default function ChildMenus(props: Props) {
     //   </div>
     //   <GlobalSheet form={<AccountForm />} title={"Account form"} />
     // </div>
-    <div className="h-[100vh] my-4 flex h-5/6 w-72 flex-col rounded-tr-2xl rounded-br-2xl bg-gray-200">
+    <div className="h-[100vh] flex h-5/6 w-72 flex-col bg-gray-200">
       <h1 className="flex justify-center pt-2">{props.title}</h1>
       <ul className="mt-12 flex flex-col">
         <li className="relative transition">
