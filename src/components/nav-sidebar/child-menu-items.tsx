@@ -164,23 +164,23 @@ export const accountArrays = () => [
 
 export const ticketingArrays = () => [
   {
-    title: 'Dashboards',
+    title: 'Flight',
     icon: 'tabler:smart-home',
     badgeContent: 'new',
     badgeColor: 'error',
     children: [
       {
-        title: 'Analytics',
+        title: 'Day',
         path: '/dashboards/analytics',
         icon: 'tabler:circle-filled'
       },
       {
-        title: 'CRM',
+        title: 'Afternoon',
         path: '/dashboards/crm',
         icon: 'tabler:circle-filled'
       },
       {
-        title: 'eCommerce',
+        title: 'Morning',
         path: '/dashboards/ecommerce',
         icon: 'tabler:circle-filled'
       }
@@ -193,26 +193,54 @@ export const ticketingArrays = () => [
   }
 ]
 
-export const automationArray = () => [
+export const tourArrays = () => [
   {
-    sectionTitle: 'Modules'
+    title: 'Tour Places',
+    icon: 'tabler:smart-home',
+    badgeContent: 'new',
+    badgeColor: 'error',
+    children: [
+      {
+        title: 'Summer',
+        path: '/dashboards/analytics',
+        icon: 'tabler:circle-filled'
+      },
+      {
+        title: 'Winter',
+        path: '/dashboards/crm',
+        icon: 'tabler:circle-filled'
+      },
+      {
+        title: 'Autumn',
+        path: '/dashboards/ecommerce',
+        icon: 'tabler:circle-filled'
+      }
+    ]
   },
   {
-    title: 'Chat ',
+    title: 'Mountains',
+    icon: 'tabler:mail',
+    path: '/apps/email'
+  }
+]
+
+export const automationArray = () => [
+  {
+    title: 'Tools ',
     icon: 'fluent:chat-12-regular',
     children: [
       {
-        title: 'Start Chat',
+        title: 'libraries',
         path: '/chatmodule/chat',
         icon: 'tabler:circle-filled'
       },
       {
-        title: 'Chat Automate',
+        title: 'packages',
         path: '/emailmodule/emailmanager/list',
         icon: 'tabler:circle-filled'
       },
       {
-        title: 'Chat Manager',
+        title: 'help',
         path: '/chatmodule/chatmanager/list',
         icon: 'tabler:circle-filled'
       }
@@ -283,6 +311,32 @@ export const automationArray = () => [
   }
 ]
 
+export const hotelArray = () => [
+  {
+    title: 'Hotel List',
+    icon: 'tabler:smart-home',
+    badgeContent: 'new',
+    badgeColor: 'error',
+    children: [
+      {
+        title: 'class-1',
+        path: '/dashboards/analytics',
+        icon: 'tabler:circle-filled'
+      },
+      {
+        title: 'class-2',
+        path: '/dashboards/crm',
+        icon: 'tabler:circle-filled'
+      },
+      {
+        title: 'class-3',
+        path: '/dashboards/ecommerce',
+        icon: 'tabler:circle-filled'
+      }
+    ]
+  }
+]
+
 export const databaseArray = () => [
   {
     title: 'Dashboards',
@@ -291,17 +345,17 @@ export const databaseArray = () => [
     badgeColor: 'error',
     children: [
       {
-        title: 'Analytics',
+        title: 'Used Databases',
         path: '/dashboards/analytics',
         icon: 'tabler:circle-filled'
       },
       {
-        title: 'CRM',
+        title: 'Active',
         path: '/dashboards/crm',
         icon: 'tabler:circle-filled'
       },
       {
-        title: 'eCommerce',
+        title: 'Backup',
         path: '/dashboards/ecommerce',
         icon: 'tabler:circle-filled'
       }
@@ -310,9 +364,6 @@ export const databaseArray = () => [
 ]
 
 export const settingsArray = () => [
-  {
-    sectionTitle: 'Setting & Config'
-  },
   {
     title: 'Roles & Permissions',
     icon: 'tabler:settings',

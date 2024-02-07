@@ -1,13 +1,13 @@
 import Link from "next/link";
 import React, { useState } from "react";
 
-import { UsersRound, Target, Settings, Home, TrendingUp, Plane } from "lucide-react";
+import { UsersRound, Target, Settings, Home, TrendingUp, Plane,Route,BedDouble,Wrench,Database } from "lucide-react";
 import { Tooltip } from "react-tooltip";
 
 import ChildMenus from "./child-menus";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-import { accountArrays, automationArray, databaseArray, settingsArray, ticketingArrays } from "./child-menu-items";
+import { accountArrays, automationArray, databaseArray, hotelArray, settingsArray, ticketingArrays, tourArrays } from "./child-menu-items";
 
 type Props = {};
 
@@ -35,7 +35,7 @@ const MainMenu = (props: Props) => {
     {
       title: "Tickets",
       link: "/orders",
-      icon:<Plane  />,
+      icon:<Plane />,
       tooltip: "Tickets",
       activeChildPath: '/welcome',
       child: ticketingArrays()
@@ -43,31 +43,23 @@ const MainMenu = (props: Props) => {
     {
       title: 'Tour',
       link: '/settings',
-      icon: <Target />,
+      icon: <Route />,
       tooltip: "Tours",
       activeChildPath: '/coming-soon',
-      child: ticketingArrays()
+      child: tourArrays()
     },
     {
       title: 'Hotel',
       link: '/users',
-      icon: <Target />,
+      icon:<BedDouble />,
       tooltip: "Hotels",
       activeChildPath: '/coming-soon',
-      child: ticketingArrays()
-    },
-    {
-      title: 'Insurance',
-      link: '/orders',
-      icon: <Target />,
-      tooltip: "Insurances",
-      activeChildPath: '/coming-soon',
-      child: ticketingArrays()
+      child: hotelArray()
     },
     {
       title: 'Automation Tools',
       link: '/settings',
-      icon: <Target />,
+      icon:<Wrench />,
       tooltip: "Automation Tools",
       activeChildPath: '/coming-soon',
       child: automationArray()
@@ -75,14 +67,11 @@ const MainMenu = (props: Props) => {
     {
       title: 'Database',
       link: '/users',
-      icon: <Target />,
+      icon: <Database />,
       tooltip: "Database",
       activeChildPath: '/coming-soon',
       child: databaseArray()
     },
-    // {
-    //   lineBreak: true
-    // },
     {
       title: "settings",
       link: "/settings",
