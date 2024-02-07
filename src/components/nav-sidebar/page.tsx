@@ -1,84 +1,104 @@
 import Link from "next/link";
 import React, { useState } from "react";
 
-import { UsersRound, Target, Settings, Home, TrendingUp, Plane,Route,BedDouble,Wrench,Database } from "lucide-react";
+import {
+  UsersRound,
+  Target,
+  Settings,
+  Home,
+  TrendingUp,
+  Plane,
+  Route,
+  BedDouble,
+  Wrench,
+  Database,
+} from "lucide-react";
 import { Tooltip } from "react-tooltip";
 
 import ChildMenus from "./child-menus";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-import { accountArrays, automationArray, databaseArray, hotelArray, settingsArray, ticketingArrays, tourArrays } from "./child-menu-items";
+import {
+  accountArrays,
+  automationArray,
+  databaseArray,
+  homeArrays,
+  hotelArray,
+  settingsArray,
+  ticketingArrays,
+  tourArrays,
+} from "./child-menu-items";
 
 type Props = {};
 
 const MainMenu = (props: Props) => {
   const [selectedTitle, setSelectedTitle] = useState("");
-  const [selectedChild, setSelectedChild] = useState();
+  const [selectedChild, setSelectedChild] = useState(homeArrays);
 
   const navLinks = [
     {
       title: "home",
-      link: "/",
+      path: "/",
       icon: <Home />,
       tooltip: "Accounts",
-      activeChildPath: '/dashboards/analytics',
-      child: accountArrays,
+      activeChildPath: "/dashboards/analytics",
+      child: homeArrays,
     },
     {
       title: "Accounts",
-      link: "/users",
+      path: "/users",
       icon: <TrendingUp />,
       tooltip: "Accounts",
-      activeChildPath: '/dashboards/analytics',
-      child: accountArrays()
+      activeChildPath: "/dashboards/analytics",
+      child: accountArrays(),
     },
     {
       title: "Tickets",
-      link: "/orders",
-      icon:<Plane />,
+      path: "/orders",
+      icon: <Plane />,
       tooltip: "Tickets",
-      activeChildPath: '/welcome',
-      child: ticketingArrays()
+      activeChildPath: "/welcome",
+      child: ticketingArrays(),
     },
     {
-      title: 'Tour',
-      link: '/settings',
+      title: "Tour",
+      path: "/settings",
       icon: <Route />,
       tooltip: "Tours",
-      activeChildPath: '/coming-soon',
-      child: tourArrays()
+      activeChildPath: "/coming-soon",
+      child: tourArrays(),
     },
     {
-      title: 'Hotel',
-      link: '/users',
-      icon:<BedDouble />,
+      title: "Hotel",
+      path: "/users",
+      icon: <BedDouble />,
       tooltip: "Hotels",
-      activeChildPath: '/coming-soon',
-      child: hotelArray()
+      activeChildPath: "/coming-soon",
+      child: hotelArray(),
     },
     {
-      title: 'Automation Tools',
-      link: '/settings',
-      icon:<Wrench />,
+      title: "Automation Tools",
+      path: "/settings",
+      icon: <Wrench />,
       tooltip: "Automation Tools",
-      activeChildPath: '/coming-soon',
-      child: automationArray()
+      activeChildPath: "/coming-soon",
+      child: automationArray(),
     },
     {
-      title: 'Database',
-      link: '/users',
+      title: "Database",
+      path: "/users",
       icon: <Database />,
       tooltip: "Database",
-      activeChildPath: '/coming-soon',
-      child: databaseArray()
+      activeChildPath: "/coming-soon",
+      child: databaseArray(),
     },
     {
       title: "settings",
-      link: "/settings",
+      path: "/settings",
       icon: <Settings />,
       tooltip: "Settings",
-      activeChildPath: '/coming-soon',
-      child: settingsArray()
+      activeChildPath: "/coming-soon",
+      child: settingsArray(),
     },
   ];
 
@@ -112,13 +132,14 @@ const MainMenu = (props: Props) => {
               key={item.title}
             />
             <Link
-              href={item.link}
+              href="/"
               data-tooltip-id={item.title}
               data-tooltip-content={item.title}
             >
               <div
-                className={`text-gray-500 focus:outline-none transition-colors duration-200 rounded-lg dark:text-gray-400 dark:hover:bg-gray-800 hover:bg-gray-10 ${location.pathname === item.link ? "text-blue-500" : ""
-                  }`}
+                className={`text-gray-500 focus:outline-none transition-colors duration-200 rounded-lg dark:text-gray-400 dark:hover:bg-gray-800 hover:bg-gray-10 ${
+                  location.pathname === item.path ? "text-blue-500" : ""
+                }`}
                 data-tip={item.tooltip}
                 data-for={item.title}
               >
