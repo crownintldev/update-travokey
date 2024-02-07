@@ -1,13 +1,17 @@
 import React from "react";
 import Link from "next/link";
 
-import { GlobalSheet } from "../sheet/page";
+// import { GlobalSheet } from "../sheet/page";
 import { AccountForm } from "../forms/account/account-form";
 import { accountArrays, ticketingArrays } from "./child-menu-items";
+import SettingsAccountPage from "../forms/account/page";
+import { GlobalSheet } from "../sheet/page";
 
 type ChildMenusProps = {
   menuItems: Array<{ title: string; children?: Array<any> }>;
 };
+
+// const openDrawer = () => <SheetDemo />;
 
 const ChildMenus: React.FC<ChildMenusProps> = ({ menuItems }) => {
   console.log("menu items", menuItems);
@@ -24,7 +28,7 @@ const ChildMenus: React.FC<ChildMenusProps> = ({ menuItems }) => {
                     type="checkbox"
                     id={`menu-${index}`}
                   />
-                  <div className="relative m-2 flex items-center rounded-xl border-b-4 border-gray-300 bg-gray-50 py-3 pl-5 text-sm text-gray-500">
+                  <div className="relative m-2 flex items-center rounded-xl border-gray-300 bg-gray-50 pl-5 text-sm text-gray-500">
                     <span className="mr-5 flex w-5 text-gray-500">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -105,6 +109,8 @@ const ChildMenus: React.FC<ChildMenusProps> = ({ menuItems }) => {
               )}
             </li>
           ))}
+        {/* <button onClick={openDrawer}>open</button> */}
+        <GlobalSheet />
       </ul>
     </div>
   );

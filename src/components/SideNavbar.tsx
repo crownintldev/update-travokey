@@ -4,6 +4,7 @@
 import { useState } from "react";
 import { Nav } from "./ui/nav";
 import { ChevronRight, Menu } from "lucide-react"; // Assuming this is your hamburger icon
+import { GlobalSheet } from "./sheet/page";
 
 export default function SideNavbar() {
   const [isMobileNavVisible, setIsMobileNavVisible] = useState(false);
@@ -22,6 +23,7 @@ export default function SideNavbar() {
         <Menu className="absolute left-4 top-6" />
       </button>
       <div className={`${isMobileNavVisible ? "block" : "hidden"} lg:block`}>
+        {/* <GlobalSheet component={<Nav />} title="sidebar" /> */}
         <Nav />
       </div>
     </div>

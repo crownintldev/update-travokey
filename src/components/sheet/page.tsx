@@ -13,11 +13,15 @@ import {
 } from "@/components/ui/sheet";
 
 interface GlobalSheetProps {
-  form: React.ReactNode;
+  // form: React.ReactNode;
+  component: React.ReactNode;
   title: string;
 }
 
-export function GlobalSheet({ form, title }: GlobalSheetProps) {
+// export function GlobalSheet({ form, title }: GlobalSheetProps) {
+export function GlobalSheet({ component, title }: GlobalSheetProps) {
+  
+  console.log("component", component);
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -27,11 +31,11 @@ export function GlobalSheet({ form, title }: GlobalSheetProps) {
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>
-          <SheetTitle>{title}</SheetTitle>
+          <SheetTitle>Title</SheetTitle>
           <SheetDescription>
             Make changes to your profile here. Click save when you're done.
           </SheetDescription>
-          <h3>{form}</h3>
+          <h3>component</h3>
         </SheetHeader>
         {/* <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
@@ -55,6 +59,7 @@ export function GlobalSheet({ form, title }: GlobalSheetProps) {
           </SheetClose>
         </SheetFooter> */}
       </SheetContent>
+      {component}
     </Sheet>
   );
 }
