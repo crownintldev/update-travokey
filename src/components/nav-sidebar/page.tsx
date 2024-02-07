@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React, { useState } from "react";
 
-import { UsersRound, Target, Settings, Home, TrendingUp, Plane,Route,BedDouble,Wrench,Database } from "lucide-react";
+import {  Settings, Home, TrendingUp, Plane,Route,BedDouble,Wrench,Database } from "lucide-react";
 import { Tooltip } from "react-tooltip";
 
 import ChildMenus from "./child-menus";
