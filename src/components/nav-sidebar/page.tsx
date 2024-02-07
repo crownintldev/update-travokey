@@ -1,73 +1,102 @@
-import React, { useState } from "react";
 import Link from "next/link";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { UsersRound, Target, Settings, Home, TrendingUp } from "lucide-react";
-import ReactTooltip, { Tooltip } from "react-tooltip"; // Import the react-tooltip library
+import React, { useState } from "react";
+
+import { UsersRound, Target, Settings, Home, TrendingUp, Plane } from "lucide-react";
+import { Tooltip } from "react-tooltip";
+
 import ChildMenus from "./child-menus";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
+import { accountArrays, automationArray, databaseArray, settingsArray, ticketingArrays } from "./child-menu-items";
 
 type Props = {};
 
 const MainMenu = (props: Props) => {
   const [selectedTitle, setSelectedTitle] = useState("");
-  const [selectedIcon, setSelectedIcon] = useState();
+  const [selectedChild, setSelectedChild] = useState();
+
   const navLinks = [
     {
       title: "home",
       link: "/",
       icon: <Home />,
       tooltip: "Accounts",
-      child: [
-        {
-          title: "Dashboard",
-          link: "/dashboard",
-          icon: <Home />,
-        },
-      ],
+      activeChildPath: '/dashboards/analytics',
+      child: accountArrays,
     },
     {
-      title: "users",
+      title: "Accounts",
       link: "/users",
       icon: <TrendingUp />,
-      tooltip: "Users",
-      child: [
-        {
-          title: "Dashboard",
-          link: "/dashboard",
-          icon: <Home />,
-        },
-      ],
+      tooltip: "Accounts",
+      activeChildPath: '/dashboards/analytics',
+      child: accountArrays()
     },
     {
-      title: "orders",
+      title: "Tickets",
       link: "/orders",
-      icon: <Target />,
-      tooltip: "Orders",
-      child: [
-        {
-          title: "Dashboard",
-          link: "/dashboard",
-          icon: <Home />,
-        },
-      ],
+      icon:<Plane  />,
+      tooltip: "Tickets",
+      activeChildPath: '/welcome',
+      child: ticketingArrays()
     },
+    {
+      title: 'Tour',
+      link: '/settings',
+      icon: <Target />,
+      tooltip: "Tours",
+      activeChildPath: '/coming-soon',
+      child: ticketingArrays()
+    },
+    {
+      title: 'Hotel',
+      link: '/users',
+      icon: <Target />,
+      tooltip: "Hotels",
+      activeChildPath: '/coming-soon',
+      child: ticketingArrays()
+    },
+    {
+      title: 'Insurance',
+      link: '/orders',
+      icon: <Target />,
+      tooltip: "Insurances",
+      activeChildPath: '/coming-soon',
+      child: ticketingArrays()
+    },
+    {
+      title: 'Automation Tools',
+      link: '/settings',
+      icon: <Target />,
+      tooltip: "Automation Tools",
+      activeChildPath: '/coming-soon',
+      child: automationArray()
+    },
+    {
+      title: 'Database',
+      link: '/users',
+      icon: <Target />,
+      tooltip: "Database",
+      activeChildPath: '/coming-soon',
+      child: databaseArray()
+    },
+    // {
+    //   lineBreak: true
+    // },
     {
       title: "settings",
       link: "/settings",
       icon: <Settings />,
       tooltip: "Settings",
-      child: [
-        {
-          title: "Dashboard",
-          link: "/dashboard",
-          icon: <Home />,
-        },
-      ],
+      activeChildPath: '/coming-soon',
+      child: settingsArray()
     },
   ];
 
   // Function to handle menu item click and update the selected title
-  const handleMenuItemClick = (title: string, link: string, icons: string) => {
+  const handleMenuItemClick = (title: string, child: any) => {
     setSelectedTitle(title);
+    setSelectedChild(child);
   };
 
   return (
@@ -85,7 +114,7 @@ const MainMenu = (props: Props) => {
         {navLinks.map((item) => (
           <div
             key={item.title}
-            onClick={() => handleMenuItemClick(item.title, item.link)} // Call the function with the selected title
+            onClick={() => handleMenuItemClick(item.title, item.child)} // Call the function with the selected title
           >
             <Tooltip
               id={item.title}
@@ -99,9 +128,8 @@ const MainMenu = (props: Props) => {
               data-tooltip-content={item.title}
             >
               <div
-                className={`text-gray-500 focus:outline-none transition-colors duration-200 rounded-lg dark:text-gray-400 dark:hover:bg-gray-800 hover:bg-gray-10 ${
-                  location.pathname === item.link ? "text-blue-500" : ""
-                }`}
+                className={`text-gray-500 focus:outline-none transition-colors duration-200 rounded-lg dark:text-gray-400 dark:hover:bg-gray-800 hover:bg-gray-10 ${location.pathname === item.link ? "text-blue-500" : ""
+                  }`}
                 data-tip={item.tooltip}
                 data-for={item.title}
               >
@@ -111,7 +139,7 @@ const MainMenu = (props: Props) => {
           </div>
         ))}
       </div>
-      <ChildMenus title={selectedTitle} />
+      <ChildMenus menuItems={selectedChild} />
     </>
   );
 };
