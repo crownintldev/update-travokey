@@ -11,34 +11,36 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { AlignJustify } from "lucide-react";
+import { ReactNode } from "react";
 
 interface GlobalSheetProps {
-  // form: React.ReactNode;
-  component: React.ReactNode;
   title: string;
+  children?: ReactNode;
 }
 
-// export function GlobalSheet({ form, title }: GlobalSheetProps) {
-export function GlobalSheet({ component, title }: GlobalSheetProps) {
-  
-  console.log("component", component);
+export function GlobalSheet({ title, children }: GlobalSheetProps) {
+  // export function GlobalSheet() {
+
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline" className="ml-4 mt-4">
+        {/* <Button variant="outline" className="ml-4 mt-4">
           Open
-        </Button>
+        </Button> */}
+        <AlignJustify />
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>
-          <SheetTitle>Title</SheetTitle>
+          <SheetTitle>{title}</SheetTitle>
           <SheetDescription>
             Make changes to your profile here. Click save when you're done.
           </SheetDescription>
           <h3>component</h3>
         </SheetHeader>
-        {/* <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
+        <div className="grid gap-4 py-4">
+          {children}
+          {/* <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="name" className="text-right">
               Name
             </Label>
@@ -49,7 +51,7 @@ export function GlobalSheet({ component, title }: GlobalSheetProps) {
               Username
             </Label>
             <Input id="username" value="@peduarte" className="col-span-3" />
-          </div>
+          </div> */}
         </div>
         <SheetFooter>
           <SheetClose asChild>
@@ -59,7 +61,7 @@ export function GlobalSheet({ component, title }: GlobalSheetProps) {
           </SheetClose>
         </SheetFooter> */}
       </SheetContent>
-      {component}
+      {/* {component} */}
     </Sheet>
   );
 }

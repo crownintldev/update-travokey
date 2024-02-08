@@ -109,8 +109,6 @@ const ChildMenus: React.FC<ChildMenusProps> = ({ menuItems }) => {
               )}
             </li>
           ))}
-        {/* <button onClick={openDrawer}>open</button> */}
-        <GlobalSheet />
       </ul>
     </div>
   );
