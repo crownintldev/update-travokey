@@ -1,4 +1,4 @@
-export const homeArrays = () => [
+export const homeItems = () => [
   {
     title: "Home",
     icon: "tabler:smart-home",
@@ -41,7 +41,7 @@ export const homeArrays = () => [
   },
 ];
 
-export const accountArrays = () => [
+export const accountItems = () => [
   {
     title: "Dashboards",
     icon: "tabler:smart-home",
@@ -204,7 +204,7 @@ export const accountArrays = () => [
   },
 ];
 
-export const ticketingArrays = () => [
+export const ticketingItems = () => [
   {
     title: "Flight",
     icon: "tabler:smart-home",
@@ -235,7 +235,7 @@ export const ticketingArrays = () => [
   },
 ];
 
-export const tourArrays = () => [
+export const tourItems = () => [
   {
     title: "Tour Places",
     icon: "tabler:smart-home",
@@ -266,7 +266,7 @@ export const tourArrays = () => [
   },
 ];
 
-export const automationArray = () => [
+export const automationItems = () => [
   {
     title: "Tools ",
     icon: "fluent:chat-12-regular",
@@ -353,7 +353,7 @@ export const automationArray = () => [
   },
 ];
 
-export const hotelArray = () => [
+export const hotelItems = () => [
   {
     title: "Hotel List",
     icon: "tabler:smart-home",
@@ -379,7 +379,7 @@ export const hotelArray = () => [
   },
 ];
 
-export const databaseArray = () => [
+export const databaseItems = () => [
   {
     title: "Dashboards",
     icon: "tabler:smart-home",
@@ -405,7 +405,7 @@ export const databaseArray = () => [
   },
 ];
 
-export const settingsArray = () => [
+export const settingsItems = () => [
   {
     title: "Roles & Permissions",
     icon: "tabler:settings",
