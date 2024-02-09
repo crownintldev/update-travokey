@@ -103,14 +103,15 @@ const MainMenu = (props: Props) => {
   ];
 
   // Function to handle menu item click and update the selected title
-  const handleMenuItemClick = (title: string, child: any) => {
+  const handleMenuItemClick = (title: string, child: any, event: React.MouseEvent) => {
+    event.preventDefault();
     setSelectedTitle(title);
     setSelectedChild(child);
   };
 
   return (
     <>
-      <div className="flex flex-col items-center w-16 h-screen py-8 space-y-8 bg-white dark:bg-gray-900 dark:border-gray-700">
+      <div className="flex flex-col items-center w-16 h-screen py-8 space-y-8 bg-white dark:bg-gray-900 dark:border-gray-700 border-l-1">
         <Link href="/">
           <Avatar>
             <AvatarImage
@@ -123,7 +124,7 @@ const MainMenu = (props: Props) => {
         {navLinks.map((item) => (
           <div
             key={item.title}
-            onClick={() => handleMenuItemClick(item.title, item.child)} // Call the function with the selected title
+            onClick={(event) => handleMenuItemClick(item.title, item.child, event)} // Pass the event
           >
             <Tooltip
               id={item.title}
@@ -137,9 +138,8 @@ const MainMenu = (props: Props) => {
               data-tooltip-content={item.title}
             >
               <div
-                className={`text-gray-500 focus:outline-none transition-colors duration-200 rounded-lg dark:text-gray-400 dark:hover:bg-gray-800 hover:bg-gray-10 ${
-                  location.pathname === item.path ? "text-blue-500" : ""
-                }`}
+                className={`text-gray-500 focus:outline-none transition-colors duration-200 rounded-lg dark:text-gray-400 dark:hover:bg-gray-800 hover:bg-gray-10 ${location.pathname === item.path ? "text-blue-500" : ""
+                  }`}
                 data-tip={item.tooltip}
                 data-for={item.title}
               >

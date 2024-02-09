@@ -11,20 +11,20 @@ import { ReactNode } from "react";
 interface GlobalSheetProps {
   title: string;
   children?: ReactNode;
-  className?: string;
+  side: string;
 }
 
-export function GlobalSheet({ title, children, className }: GlobalSheetProps) {
+export function GlobalSheet({ title, children, side }: GlobalSheetProps) {
 
   return (
-    <Sheet className={className}>
+    <Sheet key={side}>
       <SheetTrigger asChild>
         <AlignJustify />
       </SheetTrigger>
-      <SheetContent>
-        <SheetHeader>
+      <SheetContent side={side}>
+        {/* <SheetHeader>
           <SheetTitle>{title}</SheetTitle>
-        </SheetHeader>
+        </SheetHeader> */}
         {children}
       </SheetContent>
     </Sheet>

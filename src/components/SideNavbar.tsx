@@ -23,7 +23,7 @@ export default function SideNavbar() {
           aria-label="Toggle Navigation"
         >
           {/* <Menu className="absolute left-4 top-6" /> */}
-          <GlobalSheet title="sidebar" className="border border-1-y">
+          <GlobalSheet title="sidebar" side='left'>
             <Nav />
           </GlobalSheet>
         </button>
