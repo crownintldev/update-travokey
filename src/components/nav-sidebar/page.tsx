@@ -11,12 +11,15 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 // Normal Imports
 import ChildMenus from "./child-sidebar";
 import mainNavLinks from "./main-menu-items";
+import { homeItems } from "./child-menu-items";
 
 type Props = {};
 
 const MainMenu = (props: Props) => {
   const [selectedTitle, setSelectedTitle] = useState("");
   const [selectedChild, setSelectedChild] = useState(null);
+
+  // console.log('mainNav links', mainNavLinks[0])
 
   // Function to handle menu item click and update the selected title
   const handleMenuItemClick = (
@@ -73,7 +76,10 @@ const MainMenu = (props: Props) => {
           </div>
         ))}
       </div>
-      <ChildMenus menuItems={selectedChild} />
+      {/* {selectedChild ? <ChildMenus menuItems={selectedChild} /> : <ChildMenus menuItems={homeItems}} */}
+      <ChildMenus
+        menuItems={selectedChild ? selectedChild : mainNavLinks[0]}
+      />
     </>
   );
 };
