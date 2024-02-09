@@ -131,7 +131,8 @@ const MainMenu = (props: Props) => {
               place="right"
               //   effect="solid"
               key={item.title}
-            />
+              className="z-50 transition-opacity duration-300 opacity-0 hover:opacity-100 "
+              />
             <Link
               href="/"
               data-tooltip-id={item.title}

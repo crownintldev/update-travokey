@@ -16,7 +16,7 @@ export default function SideNavbar() {
 
   return (
     <>
-      <div className="">
+      <div className="absolute left-[-3px] top-9">
         <button
           className="lg:hidden block p-2"
           onClick={toggleMobileNav}
