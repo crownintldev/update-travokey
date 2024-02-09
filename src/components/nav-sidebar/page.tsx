@@ -19,8 +19,6 @@ const MainMenu = (props: Props) => {
   const [selectedTitle, setSelectedTitle] = useState("");
   const [selectedChild, setSelectedChild] = useState(null);
 
-  // console.log('mainNav links', mainNavLinks[0])
-
   // Function to handle menu item click and update the selected title
   const handleMenuItemClick = (
     title: string,
@@ -77,9 +75,7 @@ const MainMenu = (props: Props) => {
         ))}
       </div>
       {/* {selectedChild ? <ChildMenus menuItems={selectedChild} /> : <ChildMenus menuItems={homeItems}} */}
-      <ChildMenus
-        menuItems={selectedChild ? selectedChild : mainNavLinks[0]}
-      />
+      <ChildMenus menuItems={selectedChild ? selectedChild : mainNavLinks} />
     </>
   );
 };

@@ -11,8 +11,8 @@ type ChildMenusProps = {
 // const openDrawer = () => <SheetDemo />;
 
 const ChildMenus: React.FC<ChildMenusProps> = ({ menuItems }) => {
-  
-  console.log("menu items", menuItems.length);
+
+  console.log("menu items", menuItems);
   return (
     <div className="h-[100vh] flex h-5/6 w-72 flex-col ">
       <ul className="mt-12 flex flex-col">
